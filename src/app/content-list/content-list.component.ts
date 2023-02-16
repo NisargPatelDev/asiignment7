@@ -1,0 +1,78 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-content-list',
+  template: `
+    <div *ngFor="let content of contents">
+      <app-content-card [content]="content"></app-content-card>
+    </div>
+  `,
+  styleUrls: ['./content-list.component.css']
+})
+export class ContentListComponent implements OnInit {
+  contents = [    { id: 1, title: 'Content 1', image: '', description: '', creator: '', type: '', tags: [] },
+    { 
+        id: 1,
+        title: 'acoustic guitar',
+        description: 'An acoustic guitar is a musical instrument in the string family. When a string is plucked its vibration is transmitted from the bridge, resonating throughout the top of the guitar.',
+        imgURL: 'https://www.taylorguitars.com/sites/default/files/styles/feature_half/public/images/2022-10/Taylor-Academy-10-Academy-12N-Academy-12e.jpg?h=80557b9b&itok=Q6mTMuVx',
+        type: 'acoustic',
+        tags: ['Soft', 'Romantic']
+     },
+     {
+        id: 2,
+        title: 'electric guitar',
+        description: 'An electric guitar is a guitar that requires external amplification in order to be heard at typical performance volumes, unlike a standard acoustic guitar. It uses one or more pickups to convert the vibration of its strings into electrical signals, which ultimately are reproduced as sound by loudspeakers.',
+        imgURL: 'https://cdn.shopify.com/s/files/1/0657/6821/products/616iRY5yuZL._SL1400_1030x.jpg?v=1639978021',
+        type: 'electric',
+        tags: ['Rock', 'Metal']
+     },
+     {
+        id: 3,
+        title: 'Classical guitar',
+        description: 'The classical guitar is a member of the guitar family used in classical music and other styles. An acoustic wooden string instrument with strings made of gut or nylon, it is a precursor of the modern acoustic and electric guitars, both of which use metal strings.',
+        director: 'Christopher Nolan',
+        imgURL: 'https://denismusique-2.azureedge.net/img/product/76856-B.jpg?fv=D8B69D3377BFC420A920C53B27F3C7FC-56272',
+        type: 'Classical',
+        tags: ['classical','Soft']
+     },
+     {
+        id: 4,
+        title: 'Classical guitar',
+        description: 'The classical guitar is a member of the guitar family used in classical music and other styles. An acoustic wooden string instrument with strings made of gut or nylon, it is a precursor of the modern acoustic and electric guitars, both of which use metal strings.',
+        director: 'Christopher Nolan',
+        imgURL: 'https://denismusique-2.azureedge.net/img/product/76856-B.jpg?fv=D8B69D3377BFC420A920C53B27F3C7FC-56272',
+        type: 'Classical',
+        tags: ['classical','Soft']
+     },
+     {
+        id: 5,
+        title: 'Classical guitar',
+        description: 'The classical guitar is a member of the guitar family used in classical music and other styles. An acoustic wooden string instrument with strings made of gut or nylon, it is a precursor of the modern acoustic and electric guitars, both of which use metal strings.',
+        director: 'Christopher Nolan',
+        imgURL: 'https://denismusique-2.azureedge.net/img/product/76856-B.jpg?fv=D8B69D3377BFC420A920C53B27F3C7FC-56272',
+        type: 'Classical',
+        tags: ['classical','Soft']
+     },
+     {
+      id: 6,
+      title: 'Classical guitar',
+      description: 'The classical guitar is a member of the guitar family used in classical music and other styles. An acoustic wooden string instrument with strings made of gut or nylon, it is a precursor of the modern acoustic and electric guitars, both of which use metal strings.',
+      director: 'Christopher Nolan',
+      imgURL: 'https://denismusique-2.azureedge.net/img/product/76856-B.jpg?fv=D8B69D3377BFC420A920C53B27F3C7FC-56272',
+      type: 'Classical',
+      tags: ['classical','Soft']
+   },
+   {
+      id: 7,
+      title: 'Classical guitar',
+      description: 'The classical guitar is a member of the guitar family used in classical music and other styles. An acoustic wooden string instrument with strings made of gut or nylon, it is a precursor of the modern acoustic and electric guitars, both of which use metal strings.',
+      director: 'Christopher Nolan',
+      imgURL: 'https://denismusique-2.azureedge.net/img/product/76856-B.jpg?fv=D8B69D3377BFC420A920C53B27F3C7FC-56272',
+      type: 'Classical',
+      tags: ['classical','Soft']
+   },
+  ];
+
+  
+}

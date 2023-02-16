@@ -1,46 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-import { ContentList } from './content-list.ts';
-import { Content } from './content.interface';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-content-card',
   template: `
-    <div *ngFor="let item of contentList.content; index as i">
-      <div [innerHTML]="contentList.generateHTML(i)"></div>
+    <div [style.border]="border">
+      <h1>{{ content.title }}</h1>
+      <img [src]="content.image" (click)="logContent()"/>
+      <p>{{ content.description }}</p>
+      <p>{{ content.creator }}</p>
+      <p>{{ content.type }}</p>
+      <p>{{ content.tags }}</p>
     </div>
-  `
+  `,
+  styleUrls: ['./content-card.component.css']
 })
 export class ContentCardComponent implements OnInit {
-  contentList: ContentList;
+  @Input() content;
+  border = '1px solid black';
 
-  constructor() {
-    this.contentList = new ContentList();
-    this.contentList.add({
-        id: 1,
-        title: 'acoustic guitar',
-        description: 'An acoustic guitar is a musical instrument in the string family. When a string is plucked its vibration is transmitted from the bridge, resonating throughout the top of the guitar.',
-        imgURL: 'https://www.taylorguitars.com/sites/default/files/styles/feature_half/public/images/2022-10/Taylor-Academy-10-Academy-12N-Academy-12e.jpg?h=80557b9b&itok=Q6mTMuVx',
-        type: 'acoustic',
-        tags: ['Soft', 'Romantic']
-    });
-    this.contentList.add({
-        id: 2,
-        title: 'electric guitar',
-        description: 'An electric guitar is a guitar that requires external amplification in order to be heard at typical performance volumes, unlike a standard acoustic guitar. It uses one or more pickups to convert the vibration of its strings into electrical signals, which ultimately are reproduced as sound by loudspeakers.',
-        imgURL: 'https://cdn.shopify.com/s/files/1/0657/6821/products/616iRY5yuZL._SL1400_1030x.jpg?v=1639978021',
-        type: 'electric',
-        tags: ['Rock', 'Metal']
-    });
-    this.contentList.add({
-        id: 1,
-        title: 'Classical guitar',
-        description: 'The classical guitar is a member of the guitar family used in classical music and other styles. An acoustic wooden string instrument with strings made of gut or nylon, it is a precursor of the modern acoustic and electric guitars, both of which use metal strings.',
-        director: 'Christopher Nolan',
-        imgURL: 'https://denismusique-2.azureedge.net/img/product/76856-B.jpg?fv=D8B69D3377BFC420A920C53B27F3C7FC-56272',
-        type: 'Classical',
-        tags: ['classical','Soft']
-    });
+  ngOnInit() {
+    if (this.content.id === 1) {
+      this.border = '2px solid black';
+    }
   }
 
-  ngOnInit() {}
+  logContent() {
+    console.log(`Content id: ${this.content.id} title: ${this.content.title}`);
+  }
 }

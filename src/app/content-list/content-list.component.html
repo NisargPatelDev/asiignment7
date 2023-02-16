@@ -1,0 +1,23 @@
+<ng-container *ngIf="contents.length > 0">
+    <h2>Contents with no type:</h2>
+    <ul>
+      <li *ngFor="let content of contents | FilterByType">
+        {{content.title}}
+      </li>
+    </ul>
+  
+    <h2>Contents of type "News":</h2>
+    <ul>
+      <li *ngFor="let content of contents | FilterByType:'News'">
+        {{content.title}}
+      </li>
+    </ul>
+  
+    <h2>Contents of type "Blog":</h2>
+    <ul>
+      <li *ngFor="let content of contents | FilterByType:'Blog'">
+        {{content.title}}
+      </li>
+    </ul>
+  </ng-container>
+  
