@@ -76,3 +76,18 @@ export class ContentListComponent implements OnInit {
 
   
 }
+
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-content-list',
+  templateUrl: './content-list.component.html',
+  styleUrls: ['./content-list.component.css']
+})
+export class ContentListComponent {
+  @Input() contentList: object[];
+  clonedContentList: object[];
+  filter
+
+})
+

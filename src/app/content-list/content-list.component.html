@@ -1,3 +1,11 @@
+<app-create-content (addContentEvent)="addContent($event)"></app-create-content>
+
+<div *ngFor="let content of clonedContentList | filterByType:filterType">
+  <h2>{{ content.title }}</h2>
+  <p>{{ content.type }}</p>
+  <p>{{ content.description }}</p>
+</div>
+
 <ng-container *ngIf="contents.length > 0">
     <h2>Contents with no type:</h2>
     <ul>
