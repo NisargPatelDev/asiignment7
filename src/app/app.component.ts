@@ -1,11 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ContentService } from '../app/guitar.service';
 
 @Component({
-  selector: 'app-root',
-  template: `
-    <app-content-list></app-content-list>
-  `,
-  styleUrls: ['./app.component.css']
+  selector: 'app-content-list',
+  templateUrl: './content-list.component.html',
+  styleUrls: ['./content-list.component.css'],
 })
-export class AppComponent {
+export class ContentListComponent implements OnInit {
+  contentList: any[];
+
+  constructor(private contentService: ContentService) {}
+
+  ngOnInit(): void {
+    this.contentService.getContentList().subscribe((data) => {
+      this.contentList = data;
+    });
+  }
 }
