@@ -1,31 +1,30 @@
-<app-create-content (addContentEvent)="addContent($event)"></app-create-content>
+<section class="section">
+  <h2>My Favorite Guitar</h2>
 
-<div *ngFor="let content of clonedContentList | filterByType:filterType">
-  <h2>{{ content.title }}</h2>
-  <p>{{ content.type }}</p>
-  <p>{{ content.description }}</p>
-</div>
+  <app-create-content
+    (contentAdded)="onContentAdded($event)"
+  ></app-create-content>
+  <app-modify-content-component
+    [currentContent]=""
+  ></app-modify-content-component>
 
-<ng-container *ngIf="contents.length > 0">
-    <h2>Contents with no type:</h2>
-    <ul>
-      <li *ngFor="let content of contents | FilterByType">
-        {{content.title}}
-      </li>
-    </ul>
-  
-    <h2>Contents of type "News":</h2>
-    <ul>
-      <li *ngFor="let content of contents | FilterByType:'News'">
-        {{content.title}}
-      </li>
-    </ul>
-  
-    <h2>Contents of type "Blog":</h2>
-    <ul>
-      <li *ngFor="let content of contents | FilterByType:'Blog'">
-        {{content.title}}
-      </li>
-    </ul>
-  </ng-container>
-  
+  <div>
+    <label for="search">Search</label>
+    <input
+      type="text"
+      id="search"
+      placeholder="Search"
+      (input)="handleInput($event)"
+    />
+    <button (click)="searchContent()">Search</button>
+  </div>
+  <p *ngIf="isAvailable">Available</p>
+  <p *ngIf="!isAvailable">Not Available</p>
+  <app-content-card class="featured" ></app-content-card>
+  <ul class="content-list">
+
+    <li *ngFor="let guitar of guitar">
+      <app-content-card [movie]="guitar"></app-content-card>
+    </li>
+  </ul>
+</section>
